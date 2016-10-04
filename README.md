@@ -15,7 +15,7 @@ The module uses ES6 syntax.
 A very simple action creation utility.
 
 ```
-import { createAction, createActions } from 'f1-redux-utils/actionCreators';
+import { createAction, createActions } from 'f1-redux-utils/actionCreators'
 const [act1, act2] = createActions('test1', 'test2')
 const act3 = createAction('test3')
 ```
@@ -37,4 +37,20 @@ expect(act3(null, 'error')).to.eql({
   type: 'test3',
   error: 'error'
 })
+```
+
+### Load Action Container
+
+Container wrapper that will trigger an action when it is rendered (in componentWillMount).
+Use together with connect, for a container that needs to load some data when it is initially loaded.
+
+```
+import { connect } from 'react-redux';
+import loadaction from 'f1-redux-utils/loadaction'
+
+const AdminContainer = connect(state => {
+  id: state.location.id
+}, adminActions)
+
+export default loadaction({ id } => adminActions.loadTemplateById(id))(AdminContainer)
 ```
