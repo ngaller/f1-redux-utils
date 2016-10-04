@@ -48,9 +48,11 @@ Use together with connect, for a container that needs to load some data when it 
 import { connect } from 'react-redux';
 import loadaction from 'f1-redux-utils/loadaction'
 
-const AdminContainer = connect(state => {
+const mapStateToProps = state => ({
   id: state.location.id
-}, adminActions)
-
-export default loadaction({ id } => adminActions.loadTemplateById(id))(AdminContainer)
+})
+const AdminContainer = loadaction({ id } => adminActions.loadTemplateById(id))(AdminPage);
+// take care that the connect() call is after the loadaction call, so that the
+// mapped state and actions are available as props within the callback
+export default connect(mapStateToProps, adminActions)(AdminContainer);
 ```
