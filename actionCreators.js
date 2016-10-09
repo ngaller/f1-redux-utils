@@ -7,6 +7,8 @@ export function createActions(...types) {
 
 /**
  * Create a single action of the form x => { type, payload = x }
+ *
+ * @returns {Array}
  */
 export function createAction(type) {
   return (payload, error) => (Object.assign({ type }, payload ? { payload } : {}, error ? { error } : {}))
@@ -24,7 +26,7 @@ export function createAction0(type) {
 /**
  * Return an array of action creators.
  * Use this for actions that do not carry any payload.
- * 
+ *
  * @returns {Array}
  */
 export function creactActions0(...types) {
