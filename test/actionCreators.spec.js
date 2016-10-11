@@ -1,4 +1,4 @@
-import { createAction, createAction0, createActions } from '../actionCreators';
+import { createAction, createAction0, createActions } from '../src/actionCreators';
 import expect from 'expect.js';
 
 describe('actionCreators', () => {

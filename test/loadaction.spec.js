@@ -1,7 +1,7 @@
 import expect from 'expect.js'
 import React from 'react'
 import { mount } from 'enzyme'
-import loadaction from '../loadaction'
+import loadaction from '../src/loadaction'
 
 describe('loadaction', () => {
   it('should trigger load action when rendered', () => {
