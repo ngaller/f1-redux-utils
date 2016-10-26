@@ -1,5 +1,9 @@
 # Changelog f1-redux-utils
 
+## 1.0.3
+
+* Add handlePrefixedActions
+
 ## 1.0.2
 
 * Transpile on NPM publish
