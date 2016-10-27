@@ -56,3 +56,17 @@ const AdminContainer = loadaction({ id } => adminActions.loadTemplateById(id))(A
 // mapped state and actions are available as props within the callback
 export default connect(mapStateToProps, adminActions)(AdminContainer);
 ```
+
+### Handle Prefixed Actions
+
+Helper function to write a reducer that will act on all actions that have a certain prefix.
+A default state can be provided as well.
+
+This example will handle the `PROJECT_LIST_ON_FILTER` action:
+
+```
+const list = handlePrefixedActions('PROJECT_LIST', {
+  ON_FILTER: (state, action) => ({...state, filter: action.payload })
+}, { filter: '' })
+```
+
