@@ -1,4 +1,4 @@
-import { createAction, createAction0, createActions } from '../src/actionCreators';
+import { createAction, createAction0, createActions0, createActions } from '../src/actionCreators';
 import expect from 'expect.js';
 
 describe('actionCreators', () => {
@@ -41,6 +41,18 @@ describe('actionCreators', () => {
       const result = action('payload')
       expect(result).to.eql({
         type: 'test'
+      })
+    })
+  })
+
+  describe('createActions0', () => {
+    it('should create actions without payload', () => {
+      const [act1, act2] = createActions0('test1', 'test2')
+      expect(act1()).to.eql({
+        type: 'test1'
+      })
+      expect(act2('foo')).to.eql({
+        type: 'test2'
       })
     })
   })

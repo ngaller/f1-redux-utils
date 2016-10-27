@@ -29,6 +29,6 @@ export function createAction0(type) {
  *
  * @returns {Array}
  */
-export function creactActions0(...types) {
+export function createActions0(...types) {
   return types.map(createAction0)
 }
