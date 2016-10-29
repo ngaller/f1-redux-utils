@@ -57,6 +57,10 @@ const AdminContainer = loadaction({ id } => adminActions.loadTemplateById(id))(A
 export default connect(mapStateToProps, adminActions)(AdminContainer);
 ```
 
+### Unload Action Container
+
+Equivalent to Load Action Container, for unmount instead of mount.
+
 ### Handle Prefixed Actions
 
 Helper function to write a reducer that will act on all actions that have a certain prefix.

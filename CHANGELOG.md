@@ -1,5 +1,9 @@
 # Changelog f1-redux-utils
 
+## 1.0.5
+
+* Add unloadaction
+
 ## 1.0.4
 
 * Correct typo in createActions0
