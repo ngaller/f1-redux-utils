@@ -51,10 +51,20 @@ import loadaction from 'f1-redux-utils/loadaction'
 const mapStateToProps = state => ({
   id: state.location.id
 })
-const AdminContainer = loadaction({ id } => adminActions.loadTemplateById(id))(AdminPage);
+const AdminContainer = loadaction({ id } => loadTemplateById(id))(AdminPage);
 // take care that the connect() call is after the loadaction call, so that the
 // mapped state and actions are available as props within the callback
 export default connect(mapStateToProps, adminActions)(AdminContainer);
+```
+
+With the autoConnect parameter an action creator can be passed instead, enabling the
+connect call to be ommitted.  The function will be passed the props.
+
+```
+import { connect } from 'react-redux';
+import loadaction from 'f1-redux-utils/loadaction'
+
+const AdminContainer = loadaction(adminActions.loadTemplateById, true)(AdminPage);
 ```
 
 ### Unload Action Container

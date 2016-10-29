@@ -1,5 +1,9 @@
 # Changelog f1-redux-utils
 
+## 1.0.6
+
+* Add autoConnect parameter on loadaction / unloadaction
+
 ## 1.0.5
 
 * Add unloadaction
