@@ -84,3 +84,13 @@ const list = handlePrefixedActions('PROJECT_LIST', {
 }, { filter: '' })
 ```
 
+It's also possible to use this to handle most prefixed action but some absolute ones
+by prefixing those with a forward slash:
+
+```
+const list = handlePrefixedActions('PROJECT_LIST', {
+  ON_FILTER: (state, action) => ({...state, filter: action.payload }),
+  "/APP_EVENT": (state, action) => ({...state, appDidSomething: true})
+}, { filter: '' })
+```
+

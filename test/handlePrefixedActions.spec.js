@@ -27,4 +27,11 @@ describe('handlePrefixedActions', () => {
     }, 'TEST')
     expect(handler('NEWSTATE', { type: 'XXX_ACTION' })).to.eql('NEWSTATESOMETHING')
   })
+
+  it('should match action with /', () => {
+    const handler = handlePrefixedActions('XXX', {
+      "/ACTION": (state, action) => state + 'SOMETHING'
+    }, 'TEST')
+    expect(handler('NEWSTATE', { type: 'ACTION' })).to.eql('NEWSTATESOMETHING')
+  })
 })
