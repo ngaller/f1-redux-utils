@@ -12,6 +12,15 @@ describe('actionCreators', () => {
       })
     })
 
+    it('should create an action using specified payload transform', () => {
+      const action = createAction('test', x => 44)
+      const result = action('payload')
+      expect(result).to.eql({
+        type: 'test',
+        payload: 44
+      })
+    })
+
     it('should carry error when specified', () => {
       const action = createAction('test')
       const result = action(null, 'error')

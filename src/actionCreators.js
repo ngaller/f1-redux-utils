@@ -6,12 +6,12 @@ export function createActions(...types) {
 }
 
 /**
- * Create a single action of the form x => { type, payload = x }
+ * Create a single action of the form x => { type, payload = f(x) }
  *
  * @returns {Array}
  */
-export function createAction(type) {
-  return (payload, error) => (Object.assign({ type }, payload ? { payload } : {}, error ? { error } : {}))
+export function createAction(type, f) {
+  return (payload, error) => (Object.assign({ type }, payload ? { payload: f && f.call ? f(payload) : payload } : {}, error ? { error } : {}))
 }
 
 /**
